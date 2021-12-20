@@ -1,12 +1,12 @@
 import actionTypes from './actionTypes';
-import {LocalStorage} from '../../helpers'
+import { LocalStorage } from '../../helpers';
 
 const initialState = {
-  data:[],
+  data: [],
   loadingList: false,
 };
 
-const setPlanetReq= (state) => {
+const setPlanetReq = state => {
 
   return {
     ...state,

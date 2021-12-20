@@ -4,6 +4,7 @@ export default {
 	},
 	black: {
 		default: '#414141',
+		black1: '#5d5d5d',
 	},
 	grey: {
 		default: '#D4D4D4',

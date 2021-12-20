@@ -3,7 +3,7 @@ import { convert, customFetch } from '../helpers/index';
 
 export const getPlanets = async(params, data) => {
   const setPlanet = cats => {
-    return cats
+    return cats;
   };
 
   try {
@@ -15,7 +15,7 @@ export const getPlanets = async(params, data) => {
     } else {
       response.data = {};
     }
-    return response
+    return response;
   } catch (error) {
     throw error;
   }

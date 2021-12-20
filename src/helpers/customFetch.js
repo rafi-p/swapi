@@ -1,16 +1,16 @@
 /* eslint-disable no-undef */
 
-import {axios} from '../constant/index'
+import { axios } from '../constant/index';
 
 const customFetch = async(url, method, data) => {
 
   try {
-    let response = null
+    let response = null;
 
-    if(method === 'POST') {
-      response = await axios.post(url, JSON.stringify(data))
+    if (method === 'POST') {
+      response = await axios.post(url, JSON.stringify(data));
     } else {
-      response = await axios.get(url)
+      response = await axios.get(url);
     }
 
     switch (response.status) {

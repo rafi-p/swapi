@@ -10,7 +10,7 @@ let publicRoutes =  [
       path: '/',
       component: Dashboard,
     },
-  ]
+  ];
 
 const Router = props => {
 
