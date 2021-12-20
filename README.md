@@ -1,6 +1,6 @@
 # Star Wars Planet - Technical Test
 
-This project was deployed by vercell - [Website]().
+This project was deployed by vercell - [Website](https://swapi-rafi.vercel.app/).
 
 ## Installation
 
@@ -16,4 +16,7 @@ The app will automatically opened in your browser.
 
 ## Features
 
-*
+* List planets
+* User can add or remove planet to/from wishlist planet page
+* User can see detail planet
+* User can see their wishlist planet
