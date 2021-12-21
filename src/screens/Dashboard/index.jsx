@@ -28,48 +28,75 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 const Dashboard = props => {
   const dispatch = useDispatch();
   const chatDiv = useRef(null);
-  const [mainData, setMainData] = useState(Array.from({ length: 20 }));
+  const [mainData, setMainData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
   const arrData = Array.apply(null, Array(10)).map(() => {});
 
+  const getPlanets = dispatch(planetsAction.getPlanets);
+  const dataPlanets = useSelector(state => state.planets.data);
+
   const fetchMoreData = () => {
-    setLoading(true);
-    setTimeout(() => {
-      setMainData(mainData.concat(Array.from({ length: 20 })));
-      setLoading(false);
-    }, 1500);
+    // setLoading(true);
+    setPage(page + 1);
+    // getPlanets({ page: page + 1 });
+    // if (page === 1) {
+    //   setTimeout(() => {
+    //     // setLoading(false);
+    //     setPage(page + 1);
+    //   }, 3000);
+    // } else {
+    //   setPage(page + 1);
+    // }
   };
+
+  // useEffect(() => {
+  //   getPlanets();
+  // }, []);
+
+  useEffect(() => {
+    if (dataPlanets && Object.keys(dataPlanets).length > 0) {
+      setMainData(prevState => [
+        ...prevState,
+        ...dataPlanets.results
+      ]);
+    }
+
+  }, [dataPlanets]);
+
+  useEffect(() => {
+    getPlanets({ page });
+  }, [page]);
 
 
   const dataTh = [
     {
-      label: 'No.',
-      value: 'no'
+      label: 'Planet',
+      value: 'planet'
     },
     {
-      label: 'Comodity',
-      value: 'komoditas'
+      label: 'Climate',
+      value: 'climate'
     },
     {
-      label: 'Price',
-      value: 'price'
+      label: 'Terrain',
+      value: 'terrain'
     },
     {
-      label: 'Size',
-      value: 'size'
+      label: 'Population',
+      value: 'population'
     },
     {
-      label: 'City',
-      value: 'area_kota'
+      label: 'Gravity',
+      value: 'gravity'
     },
     {
-      label: 'Province',
+      label: 'Surface Water',
       value: 'area_provinsi'
     },
     {
-      label: 'Data added',
-      value: 'tgl_parsed'
+      label: 'Orbital Period',
+      value: 'orbital_period'
     },
   ];
 
@@ -80,7 +107,7 @@ const Dashboard = props => {
         <InfiniteScroll
           dataLength={ mainData.length }
           next={ fetchMoreData }
-          hasMore={ true }
+          hasMore={ page < 6 }
           loader={
             <div
               style={ { display: 'flex', justifyContent: 'center', width: '100%', padding: '10px 0' } }
@@ -100,7 +127,7 @@ const Dashboard = props => {
                 {
                   dataTh.map((el, i) => {
                     return (
-                      <th  key={ i }>label</th>
+                      <th  key={ i }>{el.label}</th>
                     );
                   })
                 }
@@ -112,13 +139,20 @@ const Dashboard = props => {
                 mainData.map((el, i) => {
                   return (
                     <tr key={ i }>
-                      <td>lorem</td>
-                      <td>lorem</td>
-                      <td>lorem</td>
-                      <td>lorem</td>
-                      <td>lorem</td>
-                      <td>lorem</td>
-                      <td>lorem</td>
+                      <td>{el.name}</td>
+                      <td>{el.climate}</td>
+                      <td>{el.terrain}</td>
+                      <td>{ el.population}
+                        {/* { el.population && el.population !== 'unknown'
+                          ?
+                          Number(el.population).toLocaleString(['ban', 'id'])
+                          :
+                          '-'
+                        } */}
+                      </td>
+                      <td>{el.gravity}</td>
+                      <td>{el.surface_water}</td>
+                      <td>{el.orbital_period}</td>
                     </tr>
                   );
                 })

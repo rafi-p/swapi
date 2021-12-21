@@ -121,7 +121,7 @@ const TableWrapper = styled.div`
     }
 
     td {
-        padding: 10px 10px;
+        padding: 20px 10px;
         border-bottom: 1px solid ${Colors.grey.lineGrey};
         font-size: 12px;
         vertical-align: middle;
@@ -132,14 +132,14 @@ const TableWrapper = styled.div`
         font-weight: 600;
         white-space: nowrap;
     }
-    /* th:after{
+    th:after{
         content:'';
         position:absolute;
         left: 0;
         bottom: 0;
         width:100%;
-        border-bottom: 2px solid ${Colors.grey.lineGrey};
-    } */
+        border-bottom: 2px solid ${Colors.black.default};
+    }
   }
 `;
 
