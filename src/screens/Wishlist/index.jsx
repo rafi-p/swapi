@@ -48,12 +48,10 @@ const Dashboard = props => {
   }, [dataFave]);
 
   useEffect(() => {
-    if (dataFave && dataFave.length > 0) {
-      let temp = [...dataFave];
-      temp = temp.slice(offset * limit, (offset * limit) + limit);
-      setMainData(temp);
-    }
-  }, [offset]);
+    let temp = [...dataFave];
+    temp = temp.slice(offset * limit, (offset * limit) + limit);
+    setMainData(temp);
+  }, [offset, dataFave]);
 
 
   const dataTh = [
