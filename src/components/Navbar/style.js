@@ -8,8 +8,13 @@ const Container = styled.div`
   padding: 0 30px;
   justify-content: flex-end;
   align-items: center;
-  position: relative;
+  /* position: relative; */
   box-shadow: rgb(0 0 0 / 20%) 0px 2px 10px 0px;
+
+  position: fixed;
+  width: -webkit-fill-available;
+  top: 0;
+  z-index: 1;
 
   @media ${Sizes.sm} {
     height: 65px;
