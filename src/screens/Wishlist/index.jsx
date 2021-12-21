@@ -27,7 +27,7 @@ import {
 } from 'react-device-detect';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
-const Dashboard = props => {
+const Wishlist = props => {
   const dispatch = useDispatch();
   const chatDiv = useRef(null);
   const [mainData, setMainData] = useState([]);
@@ -374,4 +374,4 @@ const Dashboard = props => {
   );
 };
 
-export default Dashboard;
+export default Wishlist;

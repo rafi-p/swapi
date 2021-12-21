@@ -3,7 +3,8 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import { ConnectedRouter } from 'connected-react-router';
 import {
   Dashboard,
-  Wishlist
+  Wishlist,
+  NotFound
 } from '../screens';
 
 let publicRoutes =  [
@@ -14,6 +15,10 @@ let publicRoutes =  [
     {
       path: '/wishlist',
       component: Wishlist,
+    },
+    {
+      path: '/not-found',
+      component: NotFound,
     },
   ];
 
@@ -31,7 +36,7 @@ const Router = props => {
           />
         )
       }
-      {/* <Redirect to={ '/' }/> */}
+      <Redirect to={ '/not-found' }/>
     </Switch>
     // </ConnectedRouter>
   );
