@@ -3,12 +3,17 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import { ConnectedRouter } from 'connected-react-router';
 import {
   Dashboard,
+  Wishlist
 } from '../screens';
 
 let publicRoutes =  [
     {
       path: '/',
       component: Dashboard,
+    },
+    {
+      path: '/wishlist',
+      component: Wishlist,
     },
   ];
 

@@ -58,6 +58,10 @@ const Container = styled.div`
     @media ${Sizes.sm} {
       padding: 5px 10px;
     }
+
+    &.active {
+      outline:  1px solid ${Colors.white.default};
+    }
   }
 `;
 

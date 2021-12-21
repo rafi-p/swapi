@@ -25,8 +25,8 @@ const NavbarComponent = props => {
         />
       </div>
       <div
-        className='btn-wish'
-        // onClick={ () => history.push('/wishlist') }
+        className={ `btn-wish ${pathname === '/wishlist' ? 'active' : ''}` }
+        onClick={ () => history.push('/wishlist') }
       >
         <Text
           styling={ FontStyles.mediumM }

@@ -3,7 +3,11 @@ import { Fonts, Images, Colors, Sizes } from '../../constant';
 
 const Container = styled.div`
   @media ${Sizes.sm} {
-    overflow-x: scroll;
+
+    .wrapper-content {
+
+      overflow-x: scroll;
+    }
   }
   .table-container {
     padding: 0 200px;
@@ -18,6 +22,40 @@ const Container = styled.div`
       overflow-x: scroll;
       margin-top: 50px;
     }
+  }
+
+  .empty {
+    text-align: center;
+    padding: 40px 0px;
+  }
+
+  .pagination {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      justify-content: center;
+      padding: 20px 0;
+      & > * {
+          margin-right: 20px;
+
+          &:last-child {
+              margin-right: 0px;
+          }
+      }
+
+      img {
+          width: 20px;
+          cursor: pointer;
+          transition: all .3s;
+          &:hover {
+              opacity: .8;
+          }
+
+          &.disabled {
+              pointer-events: none;
+              opacity: 0.3;
+          }
+      }
   }
 `;
 const Header = styled.div`
@@ -167,6 +205,8 @@ const ModalInfo = styled.div`
       padding: 20px;
       margin: 10px;
     }
+
+
     & > * {
         margin-bottom: 30px;
 
