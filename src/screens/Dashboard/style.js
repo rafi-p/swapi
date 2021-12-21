@@ -125,6 +125,14 @@ const TableWrapper = styled.div`
         border-bottom: 1px solid ${Colors.grey.lineGrey};
         font-size: 12px;
         vertical-align: middle;
+        transition: all .3;
+
+        &.clicked {
+          cursor: pointer;
+          &:hover {
+            font-weight: 700;
+          }
+        }
     }
 
     th {
@@ -143,9 +151,60 @@ const TableWrapper = styled.div`
   }
 `;
 
+const ModalInfo = styled.div`
+    background: ${Colors.white.default};
+    border-radius: 20px;
+    width: 486px;
+    height: auto;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+
+
+    & > * {
+        margin-bottom: 30px;
+
+        &:last-child {
+            margin-bottom: 0px;
+        }
+    }
+
+
+    .xIcon {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+
+        &:hover {
+            opacity: .8;
+        }
+    }
+
+    .all-text {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-gap: 10px 100px;
+    }
+    .btn-wish {
+        background: ${Colors.black.default};
+        padding: 10px 20px;
+        border-radius: 5px;
+        transition: all .3s;
+        cursor: pointer;
+
+        &:hover {
+            opacity: .8;
+        }
+    }
+`;
+
 export {
   Container,
   Header,
   Content,
-  TableWrapper
+  TableWrapper,
+  ModalInfo
 };
