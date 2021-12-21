@@ -63,6 +63,13 @@ const setRemoveFave = (state, payload) => {
   };
 };
 
+const setRemoveData = state => {
+  return {
+    ...state,
+    data: [],
+  };
+};
+
 const PlanetReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.GET_PLANETS_REQUEST:
@@ -75,6 +82,8 @@ const PlanetReducer = (state = initialState, action) => {
       return setFave(state, action.payload);
     case actionTypes.REMOVE_FAVE:
       return setRemoveFave(state, action.payload);
+    case actionTypes.REMOVE_DATA:
+      return setRemoveData(state);
     default:
       return state;
   }

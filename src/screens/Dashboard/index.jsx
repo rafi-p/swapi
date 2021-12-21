@@ -29,13 +29,10 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 
 const Dashboard = props => {
   const dispatch = useDispatch();
-  const chatDiv = useRef(null);
   const [mainData, setMainData] = useState([]);
-  const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [code, setCode] = useState(null);
   const [openModal, setOpenModal] = useState(false);
-  const arrData = Array.apply(null, Array(10)).map(() => {});
 
   const getPlanets = dispatch(planetsAction.getPlanets);
   const dataPlanets = useSelector(state => state.planets.data);
@@ -44,28 +41,21 @@ const Dashboard = props => {
   const saveToFav = dispatch(planetsAction.saveToFav);
   const removeToFav = dispatch(planetsAction.removeToFav);
   const dataFave = useSelector(state => state.planets.dataFave);
+  const removePlanets = dispatch(planetsAction.removePlanets);
 
   useEffect(() => {
     LocalStorage.setPlanets(dataFave);
   }, [dataFave]);
 
   const fetchMoreData = () => {
-    // setLoading(true);
     setPage(page + 1);
-    // getPlanets({ page: page + 1 });
-    // if (page === 1) {
-    //   setTimeout(() => {
-    //     // setLoading(false);
-    //     setPage(page + 1);
-    //   }, 3000);
-    // } else {
-    //   setPage(page + 1);
-    // }
   };
 
-  // useEffect(() => {
-  //   getPlanets();
-  // }, []);
+  useEffect(() => {
+    return (() => {
+      removePlanets();
+    });
+  }, []);
 
   useEffect(() => {
     if (dataPlanets && Object.keys(dataPlanets).length > 0) {

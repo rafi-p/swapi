@@ -28,6 +28,10 @@ export const removeToFavSuccess = payload => ({
   payload: { ...payload },
 });
 
+export const removeData = () => ({
+  type: actionTypes.REMOVE_DATA,
+});
+
 export const getPlanets = (dispatch, getState) => (params, body) => {
   return new Promise(async(resolve, reject) => {
     dispatch(getPlanetsRequest());
@@ -76,5 +80,12 @@ export const removeToFav = (dispatch, getState) => (params, body) => {
     } else {
       reject('No data');
     }
+  });
+};
+
+
+export const removePlanets = (dispatch, getState) => (params, body) => {
+  return new Promise(async(resolve, reject) => {
+    resolve(dispatch(removeData()));
   });
 };
